@@ -160,7 +160,8 @@ class Paypal {
      */
     protected static function camelcase($str)
     {
-        return ucfirst(preg_replace('/(^|_)(.)/e', "strtoupper('\\2')", strval($str)));
+        return preg_replace_callback('/(^|_)([a-z])/', 
+           create_function ('$matches', 'return strtoupper($matches[2]);'), $word);
     }
 
 }
