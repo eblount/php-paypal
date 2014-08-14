@@ -158,7 +158,7 @@ class Paypal {
      * @param   string  $str
      * @return  string
      */
-    protected static function camelcase($str)
+    protected static function camelcase($word)
     {
         return preg_replace_callback('/(^|_)([a-z])/', 
            create_function ('$matches', 'return strtoupper($matches[2]);'), $word);
